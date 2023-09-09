@@ -53,15 +53,15 @@ table {
 }
 
 body {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto Bold', sans-serif;
     box-sizing: border-box;
 }
 
 .dashboard {
     display: grid;
     grid-template: 
-            "sidebar header" 16vh
-            "sidebar main" / 250px;
+            "sidebar header" clamp(150px, 18vh, 200px)
+            "sidebar main" / 200px;
     width: 100vw;
     height: 100vh;
 }
@@ -71,24 +71,65 @@ body {
     background-color: white;
     display: grid;
     grid-template: 
-            "searchbar notifications prof" 40px
-            "intro create create" 1fr / 1fr 250px;
+            "searchbar prof" 1fr
+            "intro create" 2fr / 5fr 3fr;
+    gap: 10px;
+    padding: 20px;
+}
+
+.searchbar, .prof {
+    display: flex;
+    align-items: center;
 }
 
 .searchbar {
     grid-area: searchbar;
 }
 
-.notifications {
-    grid-area: notifications;
+.header svg {
+    width: 20px;
+}
+
+.searchbar svg {
+    margin-right: 20px;
+}
+
+.searchbar input {
+    height: 20px;
+    width: 90%;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
 }
 
 .prof {
     grid-area: prof;
+    display: flex;
+    justify-content: center;
+}
+
+.prof img {
+    width: 40px;
+    height: auto;
+    margin: 0 20px;
 }
 
 .intro {
     grid-area: intro;
+    display: flex;
+    align-items: center;
+}
+
+.intro img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+.intro p {
+    font-size: .8rem;
+    margin-bottom: 10px;
 }
 
 .create {
@@ -96,6 +137,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.create button {
+    margin: 0 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1992d4;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    width: 90px;
+}
+
+.create button:hover {
+    cursor: pointer;
 }
 
 .sidebar {
